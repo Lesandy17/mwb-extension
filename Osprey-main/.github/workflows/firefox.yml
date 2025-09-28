@@ -1,0 +1,60 @@
+name: 'Compile for Firefox'
+
+on:
+  push:
+    branches: [ 'main' ]
+  pull_request:
+    branches: [ 'main' ]
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 'Checkout Repository'
+        uses: actions/checkout@v5
+
+      - name: 'Extract Version'
+        id: get_version
+        run: |
+          VERSION=$(jq -r '.version' src/main/manifest.json)
+          echo "VERSION=$VERSION" >> $GITHUB_ENV
+
+      - name: 'Remove update_url from manifest.json'
+        run: |
+          jq 'del(.update_url)' src/main/manifest.json > src/main/manifest_temp.json
+          mv src/main/manifest_temp.json src/main/manifest.json
+
+      - name: 'Remove incognito from manifest.json'
+        run: |
+          jq 'del(.incognito)' src/main/manifest.json > src/main/manifest_temp.json
+          mv src/main/manifest_temp.json src/main/manifest.json
+
+      - name: 'Remove storage from manifest.json'
+        run: |
+            jq 'del(.storage)' src/main/manifest.json > src/main/manifest_temp.json
+            mv src/main/manifest_temp.json src/main/manifest.json
+
+      - name: 'Add menus permission'
+        run: |
+          jq '.permissions += ["menus"]' src/main/manifest.json > src/main/manifest_temp.json
+          mv src/main/manifest_temp.json src/main/manifest.json
+
+      - name: 'Replace service_worker with page'
+        run: |
+          jq '.background = {"page": "background.html"}' src/main/manifest.json > src/main/manifest_temp.json
+          mv src/main/manifest_temp.json src/main/manifest.json
+
+      - name: 'Add browser_specific_settings for Firefox'
+        run: |
+          jq '. += {"browser_specific_settings": {"gecko": {"id": "osprey@foulest.net", "strict_min_version": "109.0"}}}' src/main/manifest.json > src/main/manifest_temp.json
+          mv src/main/manifest_temp.json src/main/manifest.json
+
+      - name: 'Upload Artifact'
+        uses: actions/upload-artifact@v4
+        with:
+          name: Osprey-${{ env.VERSION }}-firefox
+          path: src/main

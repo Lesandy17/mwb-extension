@@ -1,0 +1,142 @@
+{
+  "_comment_1": "https://chromium.org/administrators/configuring-policy-for-extensions",
+  "_comment_2": "In Windows, these policies are stored under HKLM\\SOFTWARE\\Policies\\Google\\Chrome\\3rdParty\\Extensions\\<extensionID>\\policy",
+  "_comment_3": "e.g. a REG_DWORD named 'DisableNotifications' with a value of 1 will result in the notifications being disabled.",
+  "_comment_4": "The extension ID is found in the chrome://extensions or edge://extensions page.",
+  "type": "object",
+  "properties": {
+    "DisableNotifications": {
+      "title": "Disable Notifications",
+      "description": "If set to true, notifications will be disabled.",
+      "type": "boolean"
+    },
+    "DisableContextMenu": {
+      "title": "Disable Context Menu",
+      "description": "If set to true, the context menu will be disabled.",
+      "type": "boolean"
+    },
+    "HideContinueButtons": {
+      "title": "Hide Continue Buttons",
+      "description": "If set to true, the continue buttons will be hidden.",
+      "type": "boolean"
+    },
+    "HideReportButton": {
+      "title": "Hide Report Button",
+      "description": "If set to true, the report button will be hidden.",
+      "type": "boolean"
+    },
+    "LockProtectionOptions": {
+      "title": "Lock Protection Options",
+      "description": "If set to true, the protection options will be locked.",
+      "type": "boolean"
+    },
+    "HideProtectionOptions": {
+      "title": "Hide Protection Options",
+      "description": "If set to true, the protection options will be hidden.",
+      "type": "boolean"
+    },
+    "DisableClearAllowedWebsites": {
+      "title": "Disable Clear Allowed Websites",
+      "description": "If set to true, the clear allowed websites button will be disabled.",
+      "type": "boolean"
+    },
+    "DisableRestoreDefaultSettings": {
+      "title": "Disable Restore Default Settings",
+      "description": "If set to true, the restore default settings button will be disabled.",
+      "type": "boolean"
+    },
+    "IgnoreFrameNavigation": {
+      "title": "Ignore Frame Navigation",
+      "description": "If set to true, frame navigation will be ignored.",
+      "type": "boolean"
+    },
+    "CacheExpirationSeconds": {
+      "title": "Cache Expiration Seconds",
+      "description": "If set, the cache expiry time will be set to this value in seconds.",
+      "type": "integer",
+      "minimum": 60,
+      "maximum": 2592000,
+      "default": 86400
+    },
+    "AdGuardSecurityEnabled": {
+      "title": "AdGuard Security Enabled",
+      "description": "If set to true, AdGuard Security will be enabled.",
+      "type": "boolean"
+    },
+    "AdGuardFamilyEnabled": {
+      "title": "AdGuard Family Enabled",
+      "description": "If set to true, AdGuard Family will be enabled.",
+      "type": "boolean"
+    },
+    "AlphaMountainEnabled": {
+      "title": "alphaMountain Enabled",
+      "description": "If set to true, alphaMountain will be enabled.",
+      "type": "boolean"
+    },
+    "ControlDSecurityEnabled": {
+      "title": "Control D Security Enabled",
+      "description": "If set to true, Control D Security will be enabled.",
+      "type": "boolean"
+    },
+    "ControlDFamilyEnabled": {
+      "title": "Control D Family Enabled",
+      "description": "If set to true, Control D Family will be enabled.",
+      "type": "boolean"
+    },
+    "PrecisionSecEnabled": {
+      "title": "PrecisionSec Enabled",
+      "description": "If set to true, PrecisionSec will be enabled.",
+      "type": "boolean"
+    },
+    "CERTEEEnabled": {
+      "title": "CERT-EE Enabled",
+      "description": "If set to true, CERT-EE will be enabled.",
+      "type": "boolean"
+    },
+    "CleanBrowsingSecurityEnabled": {
+      "title": "CleanBrowsing Security Enabled",
+      "description": "If set to true, CleanBrowsing Security will be enabled.",
+      "type": "boolean"
+    },
+    "CleanBrowsingFamilyEnabled": {
+      "title": "CleanBrowsing Family Enabled",
+      "description": "If set to true, CleanBrowsing Family will be enabled.",
+      "type": "boolean"
+    },
+    "CloudflareSecurityEnabled": {
+      "title": "Cloudflare Security Enabled",
+      "description": "If set to true, Cloudflare Security will be enabled.",
+      "type": "boolean"
+    },
+    "CloudflareFamilyEnabled": {
+      "title": "Cloudflare Family Enabled",
+      "description": "If set to true, Cloudflare Family will be enabled.",
+      "type": "boolean"
+    },
+    "DNS0SecurityEnabled": {
+      "title": "DNS0.eu Security Enabled",
+      "description": "If set to true, DNS0.eu Security will be enabled.",
+      "type": "boolean"
+    },
+    "DNS0FamilyEnabled": {
+      "title": "DNS0.eu Family Enabled",
+      "description": "If set to true, DNS0.eu Family will be enabled.",
+      "type": "boolean"
+    },
+    "DNS4EUSecurityEnabled": {
+      "title": "DNS4EU Security Enabled",
+      "description": "If set to true, DNS4EU Security will be enabled.",
+      "type": "boolean"
+    },
+    "DNS4EUFamilyEnabled": {
+      "title": "DNS4EU Family Enabled",
+      "description": "If set to true, DNS4EU Family will be enabled.",
+      "type": "boolean"
+    },
+    "Quad9Enabled": {
+      "title": "Quad9 Enabled",
+      "description": "If set to true, Quad9 will be enabled.",
+      "type": "boolean"
+    }
+  }
+}
